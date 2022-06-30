@@ -2,7 +2,6 @@
 body {
     margin: 0px;
     background-image: linear-gradient(#FEFEFE, #1B3B14);
-    background-repeat: no-repeat;
 }
 
 #cabeçalho {
@@ -24,8 +23,6 @@ body {
     color: white;
     font-size: 18px;
 }
-
-
 
 
 section {
@@ -122,8 +119,16 @@ input[type="checkbox"]:checked {
 
 }
 
+
 @media only screen and (max-device-width: 640px) {
 
+    #cabeçalho {
+        background-color: #1B3B14;
+        height: 70px;
+    }
+    body{
+        width: 160%;
+    }
     #aniv, #fam {
         font-size: 12px;
     }
@@ -137,26 +142,19 @@ input[type="checkbox"]:checked {
     }
 
     section {
-        margin-left: 7%;
+        margin-left: 10%;
     }
     
     #containerAdd {
-        width: 350px;
+        width: 85%;
         height: 150px;
         border-radius: 3px;
     }
     
     #inputNome {
-        margin-left: 30px;
-        margin-top: 30px;
-        width: 273px;
-        height: 33px;
-        border: none;
-        border-radius: 10px;
-        padding-left: 10px;
+
         margin-bottom: 20px;
-        box-shadow: 5px 5px 5px rgba(42, 42, 42, 0.392);
-        background-color: #fefefeb1;
+
     }
     
     button {
@@ -182,7 +180,9 @@ input[type="checkbox"]:checked {
     }
     
     #containerLista {
-        width: 350px;
+        width: 85%;
+        margin-bottom: 10%;
+        padding-bottom: 20px;
         border-radius: 3px;
     }
     
