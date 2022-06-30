@@ -1,0 +1,198 @@
+
+body {
+    margin: 0px;
+    background-image: linear-gradient(#FEFEFE, #1B3B14);
+    background-repeat: no-repeat;
+}
+
+#cabeçalho {
+    background-color: #1B3B14;
+    height: 70px;
+}
+
+#logo {
+    padding: 10px;
+    width: 64px;
+    height: 48.58px;
+}
+
+#aniv,
+#fam {
+    float: right;
+    padding-top: 25px;
+    padding-right: 30px;
+    color: white;
+    font-size: 18px;
+}
+
+
+
+
+section {
+    margin-left: 23%;
+}
+
+#título {
+    color: #1B3B14;
+    font-size: 45px;
+}
+
+#containerAdd {
+    background-color: #d9d9d958;
+    width: 835px;
+    height: 100px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px rgba(42, 42, 42, 0.59);
+}
+
+#inputNome {
+    margin-left: 30px;
+    margin-top: 30px;
+    width: 273px;
+    height: 33px;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    box-shadow: 5px 5px 5px rgba(42, 42, 42, 0.392);
+    background-color: #fefefeb1;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    height: 33px;
+    width: 104px;
+    margin-left: 10px;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px rgba(42, 42, 42, 0.392);
+    background-color: #fefefeb1;
+    color: #1B3B14;
+
+}
+
+button:hover {
+    background-color: white;
+}
+
+
+
+
+#imgCruz {
+    padding-left: 630px;
+    padding-bottom: 5px;
+    height: 215px;
+    width: 256px;
+    opacity: 0.6;
+}
+
+#containerLista {
+    background-color: #d9d9d963;
+    width: 835px;
+    margin-bottom: 200px;
+    border-radius: 5px;
+    box-shadow: 0 0 1em;
+    box-shadow: 5px 5px 15px rgba(42, 42, 42, 0.59);
+}
+
+#lista {
+    width: 500px;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.check {
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #1B3B14;
+}
+
+.nomesLista {
+    color: #1B3B14;
+    font-size: 20px;
+    margin-left: 30px;
+    margin-top: -41px;
+    margin-bottom: 20px;
+
+}
+
+@media only screen and (max-device-width: 640px) {
+
+    #aniv, #fam {
+        font-size: 12px;
+    }
+    #logo {
+        padding: 20px;
+        width: 40px;
+        height: 28px;
+    }
+    #título {
+        font-size: 18px;
+    }
+
+    section {
+        margin-left: 7%;
+    }
+    
+    #containerAdd {
+        width: 350px;
+        height: 150px;
+        border-radius: 3px;
+    }
+    
+    #inputNome {
+        margin-left: 30px;
+        margin-top: 30px;
+        width: 273px;
+        height: 33px;
+        border: none;
+        border-radius: 10px;
+        padding-left: 10px;
+        margin-bottom: 20px;
+        box-shadow: 5px 5px 5px rgba(42, 42, 42, 0.392);
+        background-color: #fefefeb1;
+    }
+    
+    button {
+        border: none;
+        border-radius: 10px;
+        height: 33px;
+        width: 104px;
+        margin-left: 30px;
+        background-color: white;
+        cursor: pointer;
+        box-shadow: 5px 5px 5px rgba(42, 42, 42, 0.392);
+        background-color: #fefefeb1;
+        color: #1B3B14;
+    
+    }
+    
+    button:hover {
+        background-color: white;
+    }
+    
+    #imgCruz {
+        opacity: 0;
+    }
+    
+    #containerLista {
+        width: 350px;
+        border-radius: 3px;
+    }
+    
+    .check {
+        height: 15px;
+        width: 15px;
+    }
+    
+    .nomesLista {
+        font-size: 15px;
+        padding-top: 5px;
+    }
+}
