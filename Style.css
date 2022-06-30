@@ -178,7 +178,7 @@ input[type="checkbox"]:checked {
     }
     
     #imgCruz {
-        opacity: 0;
+        display: none;
     }
     
     #containerLista {
