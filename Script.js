@@ -11,58 +11,56 @@ const inputNome = document.getElementById("inputNome")
 const btnAdicionar = document.getElementById("btnAdicionar")
 const btnReiniciar = document.getElementById("btnReiniciar")
 
-let nomes = [];
-let nomeOrdem = [];
-
+let chefeFamilia = [];
 
 function gerarLista() {
+
     lista.innerHTML = "";
-    for (let i = 0; i < nomes.length; ++i) {
 
-        nomeOrdem[i] = nomes[i].get("Nome");
-        console.log(nomeOrdem[i]);
-        
-    }
-    nomeOrdem.sort();
-
-    for (let i = 0; i < nomes.length; ++i) {
-
-        const check = document.createElement("input");
-        check.type = "checkbox";
-        check.classList = "check";
-        check.checked = nomes[i].get("oracao");
-        check.onclick = (evt) => checkTarefa(evt, nomes[i]);
+    for (let i = 0; i < chefeFamilia.length; ++i) {
 
         const nomesLista = document.createElement("div");
         nomesLista.classList = "nomesLista";
 
+        const check = document.createElement("input");
+        check.type = "checkbox";
+        check.classList = "check";
+        check.checked = chefeFamilia[i].get("oracao");
+        check.onclick = (evt) => checkTarefa(evt, chefeFamilia[i]);
+
         const txt = document.createTextNode(
-            `${nomeOrdem[i]}` 
+            `${chefeFamilia[i].get("Nome")}`
         );
-        
-        lista.appendChild(check);
+
+        const btnRemover = document.createElement("button");
+        btnRemover.className = "fa fa-trash btnRemover";
+        btnRemover.onclick = (evt2) => removeTarefa(evt2, chefeFamilia[i]);
+
+
+        nomesLista.appendChild(check);
+        nomesLista.appendChild(btnRemover);
         nomesLista.appendChild(txt);
         lista.appendChild(nomesLista);
-        
     }
 
-};
-gerarLista();
-
+}
 
 const leitura = async () => {
+
     const FamiliaNoAltar = Parse.Object.extend('FamiliaNoAltar');
     const query = new Parse.Query(FamiliaNoAltar);
+
     try {
         const results = await query.find();
-        nomes = results;
+        chefeFamilia = results;
+        compare();
         gerarLista();
+
     } catch (error) {
         console.error('Error while fetching FamiliaNoAltar', error);
     }
 };
 leitura();
-
 
 const adicionar = async () => {
     const myNewObject = new Parse.Object('FamiliaNoAltar');
@@ -78,18 +76,11 @@ const adicionar = async () => {
         console.error('Error while creating FamiliaNoAltar: ', error);
     }
 };
-
 btnAdicionar.onclick = adicionar;
 
-
 const checkTarefa = async (evt, tarefa) => {
-    tarefa.set('oracao', evt.target.checked);
 
-    // if (evt.target.checked) {
-    //   div2.className = "risco";
-    // } else {
-    //   div2.className = "semRisco"
-    // }
+    tarefa.set('oracao', evt.target.checked);
 
     try {
         const response = await tarefa.save();
@@ -99,3 +90,43 @@ const checkTarefa = async (evt, tarefa) => {
         console.error('Error while updating Tarefa', error);
     }
 };
+
+const removeTarefa = async (evt2, tarefa) => {
+    tarefa.set(evt2.target.remove);
+    try {
+        const response = await tarefa.destroy();
+        console.log('Delet ParseObject', response);
+        leitura()
+    } catch (error) {
+        console.error('Error while updating Tarefa', error);
+    }
+};
+
+
+function compare() {
+    chefeFamilia.sort(function (x, y) {
+        let a = x.get("Nome");
+        let b = y.get("Nome")
+        return a == b ? 0 : a > b ? 1 : -1;
+    });
+}
+
+
+const reiniciar = async (tarefa) => {
+
+    for (let i = 0; i < chefeFamilia.length; ++i) {
+        tarefa[i].set('oracao', false);
+        tarefa[i].save();
+    }
+    try {
+        gerarLista();
+    } catch (error) {
+        console.error('Error while updating Tarefa', error);
+    }
+};
+btnReiniciar.onclick = (evt) => reiniciar(chefeFamilia);
+
+
+
+
+
