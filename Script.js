@@ -36,7 +36,6 @@ function gerarLista() {
         btnRemover.className = "fa fa-trash btnRemover";
         btnRemover.onclick = (evt2) => removeTarefa(evt2, chefeFamilia[i]);
 
-
         nomesLista.appendChild(check);
         nomesLista.appendChild(btnRemover);
         nomesLista.appendChild(txt);
@@ -54,7 +53,6 @@ const leitura = async () => {
         const results = await query.find();
         chefeFamilia = results;
         compare();
-        gerarLista();
 
     } catch (error) {
         console.error('Error while fetching FamiliaNoAltar', error);
@@ -102,13 +100,13 @@ const removeTarefa = async (evt2, tarefa) => {
     }
 };
 
-
 function compare() {
     chefeFamilia.sort(function (x, y) {
         let a = x.get("Nome");
         let b = y.get("Nome")
         return a == b ? 0 : a > b ? 1 : -1;
     });
+    gerarLista();
 }
 
 
