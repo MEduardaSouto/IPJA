@@ -14,30 +14,49 @@
 </head>
 
 <body>
-    
-    <nav id="cabeçalho">
 
-        <img id="logo" src="Imagens/IPJA - PNG - White.png">
-        <a href="index_aniversarios.html"><div id="aniv"> ANIVERSÁRIOS </div></a>
-        <div id="fam"> FAMÍLIA NO ALTAR </div>
+    <nav class="cabeçalho">
+
+        <img class="cabecalho_logo" src="Imagens/IPJA - PNG - White.png">
+        <div class="cabecalho_div">
+            <a class="cabecalho_link aniversarios_link" onclick="telaAniversario()"> ANIVERSÁRIOS </a>
+            <a class="cabecalho_link familia_link" onclick="telaFamilia()"> FAMÍLIA NO ALTAR </a>
+        </div>
 
     </nav>
 
-    <section>
+    <section class="familia_altar">
 
-        <h1 id="título">FAMÍLIA NO ALTAR</h1>
+        <main class="principal">
 
-        <div id="containerAdd">
-            <input type="text" id="inputNome" placeholder = "Chefe da família">
-            <button id="btnAdicionar">ADICIONAR</button>
-            <button id="btnReiniciar">REINICIAR LISTA</button>
-        </div><br>
+            <h1 class="principal_titulo">FAMÍLIA NO ALTAR</h1>
 
-        <div id="containerLista">
-            <div id="lista"> </div>
-            <img src="Imagens/Cruz.png" id="imgCruz">
-        </div>
+            <div class="container_Add">
+                <input type="text" class="container_input" placeholder="Chefe da família">
+                <button class="container_btn btn_adicionar">ADICIONAR</button>
+                <button class="container_btn btn_reiniciar">REINICIAR LISTA</button>
+            </div>
+
+            <div class="container_Lista">
+                <div class="lista"> </div>
+            </div>
+
+        </main>
 
     </section>
+
+    <section class="aniversariantes">
+        <main class="principal">
+
+            <h1 class="principal_titulo">ANIVERSARIANTES DO MÊS</h1>
+
+            <div class="container_Lista">
+                <div class="lista"> </div>
+            </div>
+
+        </main>
+    </section>
+
 </body>
+
 </html>

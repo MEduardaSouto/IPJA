@@ -6,10 +6,10 @@ Parse.initialize(
 );
 
 
-const lista = document.getElementById("lista")
-const inputNome = document.getElementById("inputNome")
-const btnAdicionar = document.getElementById("btnAdicionar")
-const btnReiniciar = document.getElementById("btnReiniciar")
+const lista = document.querySelector(".lista")
+const inputNome = document.querySelector(".container_input")
+const btnAdicionar = document.querySelector(".btn_adicionar")
+const btnReiniciar = document.querySelector(".btn_reiniciar")
 
 let chefeFamilia = [];
 
@@ -123,6 +123,22 @@ const reiniciar = async (tarefa) => {
     }
 };
 btnReiniciar.onclick = (evt) => reiniciar(chefeFamilia);
+
+
+const familia = document.querySelector(".familia_link");
+const aniversario = document.querySelector(".aniversario_link")
+
+
+function telaFamilia() {
+    document.querySelector(".familia_altar").style.display = "block"
+    document.querySelector(".aniversariantes").style.display = "none"
+}
+telaFamilia()
+
+function telaAniversario() {
+    document.querySelector(".familia_altar").style.display = "none"
+    document.querySelector(".aniversariantes").style.display = "block"
+}
 
 
 
